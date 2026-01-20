@@ -89,6 +89,16 @@ jobs:
           node-version: 22.x
           cache: pnpm
 
+      - name: Download web build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+
+      - name: Extract web build
+        run: |
+          unzip -q dist.zip
+          mv dist-prod dist
+
       - name: Install frontend dependencies
         run: pnpm install
 
