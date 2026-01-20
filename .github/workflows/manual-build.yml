@@ -18,19 +18,14 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22.x
-          cache: pnpm
+          cache: npm
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
@@ -42,4 +37,4 @@ jobs:
           releaseBody: 'Windows desktop build'
           releaseDraft: false
           prerelease: false
-          run: pnpm tauri build
+          run: npm run tauri build
