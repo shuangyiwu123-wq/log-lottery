@@ -8,6 +8,10 @@ on:
         required: true
         default: 'v0.5.5'
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -41,4 +45,5 @@ jobs:
           releaseBody: 'Windows desktop build'
           releaseDraft: false
           prerelease: false
-          run: pnpm tauri build
+          args: --release
+          tauriScript: pnpm tauri
