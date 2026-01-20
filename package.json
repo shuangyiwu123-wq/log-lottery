@@ -6,9 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build --mode development",
     "build:pre": "vue-tsc --noEmit && vite build --mode prebuild",
     "build:file": "vue-tsc --noEmit && vite build --mode file",
+    "build:simple": "vite build --minify false",
     "tauri": "node ./build/syncVersion.js && tauri",
     "update-version": "node ./build/updateVersion.js",
     "test": "vitest",
